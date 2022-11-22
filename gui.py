@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from math import inf as infinity
+import game
 
 class MyApp(QWidget):
     def __init__(self):
@@ -17,9 +18,9 @@ class MyApp(QWidget):
         getBackButton.clicked.connect(self.getBackClicked)
 
         buttonHbox = QHBoxLayout()
-        buttonHbox.addStretch(1)
         buttonHbox.addWidget(startButton)
         buttonHbox.addWidget(getBackButton)
+        buttonHbox.addStretch(1)
 
         xLabel = QLabel("x : ", self)
         self.xEdit = QLineEdit(self)
@@ -29,15 +30,16 @@ class MyApp(QWidget):
         addButton.clicked.connect(self.addClicked)
 
         inputHBox = QHBoxLayout()
-        inputHBox.addStretch(1)
         inputHBox.addWidget(xLabel)
         inputHBox.addWidget(self.xEdit)
         inputHBox.addWidget(yLabel)
         inputHBox.addWidget(self.yEdit)
         inputHBox.addWidget(addButton)
+        inputHBox.addStretch(1)
 
         tableLabel = QLabel("Table : ", self)
         self.tableEdit = QTextEdit()
+        self.tableEdit.setReadOnly(True)
 
         vBox = QVBoxLayout()
         vBox.stretch(1)
@@ -49,7 +51,7 @@ class MyApp(QWidget):
         self.setLayout(vBox)
 
         self.setGeometry(300, 300, 500, 300)
-        self.setWindowTitle("¿À¸ñ")
+        self.setWindowTitle("ì˜¤ëª©")
         self.show()
 
     def startClicked(self):
